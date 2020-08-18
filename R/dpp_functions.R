@@ -90,10 +90,10 @@ dwd_scores <- function(X.t,n,balance) {
   perm_y <- dwd_rsamp(balance,n)
 
   ## Calculate the penalty parameter to be used for DiProPerm ##
-  C = quiet(DWDLargeR::penaltyParameter(X.t,perm_y,expon=1))
+  C = quiet(DWDLargeR::penaltyParameter(X.t,perm_y,expon=1,rmzeroFea = 0))
 
   # solve the generalized DWD model
-  result = quiet(DWDLargeR::genDWD(X.t,perm_y,C=C,expon=1)) ## Iain uses C=0.1 in his example
+  result = quiet(DWDLargeR::genDWD(X.t,perm_y,C=C,expon=1,rmzeroFea = 0)) ## Iain uses C=0.1 in his example
 
   ## Calculate Permuted Scores ##
   w <- result$w / norm_vec(result$w) ## Loadings of Separating Hyperplane
