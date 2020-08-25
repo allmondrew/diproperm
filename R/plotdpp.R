@@ -27,9 +27,9 @@
 #' dpp <- DiProPerm(X=X,y=y,B=10)
 #' plotdpp(dpp)}
 #' \dontshow{data(mushrooms)
-#' X.temp <- SparseM::as.matrix(mushrooms$X)[,1:100]
+#' X.temp <- SparseM::as.matrix(mushrooms$X)[,1:50]
 #' X <- Matrix::t(X.temp)
-#' y <- mushrooms$y[1:100]
+#' y <- mushrooms$y[1:50]
 #' dpp <- DiProPerm(X=X,y=y,B=100,classifier="md")
 #' plotdpp(dpp)}
 
