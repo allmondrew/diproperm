@@ -117,4 +117,5 @@ md_scores <- function(X.temp,n,balance) {
 ## Calculates the mean difference univariate statistic ##
 sumfun_diffmean <- function(dat) {
   with(dat,abs(mean(xw[perm_y==1])-mean(xw[perm_y==-1])))
+  #with(dat,abs(mean(xw[y==1])-mean(xw[y==-1])))
 }
