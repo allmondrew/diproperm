@@ -75,7 +75,7 @@ plotdpp <- function(dpp,plots="all",w=0.001,h=0.001) {
 
   p.diagt1 <- p.diag1 + ggplot2::geom_point(position = jitter, ggplot2::aes(y=maxy*0.25,color="darkgreen")) +
               ggplot2::geom_label(
-              label=paste("Z:", round(dpp$Z,3), ", Obs. Test Stat:", round(dpp$obs_teststat,3), ", Cutoff Value:", round(dpp$cutoff_value,3),", Pvalue:",round(dpp$pvalue,3)),
+              label=paste("Z:", round(dpp$Z,3), ", Obs. Test Stat:", round(dpp$obs_teststat,3), ", Cutoff Value:", round(dpp$cutoff_value,3),", Pvalue:",dpp$pvalue),
               x=maxx*0.95,
               y=maxy*0.95,
               vjust=1,
@@ -88,7 +88,7 @@ plotdpp <- function(dpp,plots="all",w=0.001,h=0.001) {
 
   p.diagt11 <- p.diag1 + ggplot2::geom_point(position = jitter, ggplot2::aes(y=maxy*0.25,color="darkgreen")) +
               ggplot2::geom_label(
-                label=paste("Z:", round(dpp$Z,3),"\nObs. Test Stat:", round(dpp$obs_teststat,3), "\nCutoff Value:", round(dpp$cutoff_value,3),"\n","Pvalue:",round(dpp$pvalue,3),""),
+                label=paste("Z:", round(dpp$Z,3),"\nObs. Test Stat:", round(dpp$obs_teststat,3), "\nCutoff Value:", round(dpp$cutoff_value,3),"\n","Pvalue:",dpp$pvalue,""),
                 x=maxx*0.95,
                 y=maxy*0.95,
                 vjust=1,

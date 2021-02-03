@@ -55,6 +55,10 @@
 #' {Wei, S., Lee, C., Wichers, L., & Marron, J. S. (2016). Direction-Projection-Permutation for High-Dimensional Hypothesis Tests. Journal of Computational and Graphical Statistics, 25(2), 549–569. \url{https://doi.org/10.1080/10618600.2015.1027773}}
 DiProPerm <- function(X,y,B=1000,classifier="dwd",univ.stat="md",balance=TRUE,alpha=0.05,cores=2) {
 
+  ## Perform error checks
+  if(B<1000) {message("Setting the number of permutations, B, below 1000 is not recommended.")}
+  if(is.na(match("matrix",class(X))) & is.na(match("matrix.csr",class(X))) ) {stop("Error: Please make sure your input data, X, is a data matrix.")}
+
   X.t <- Matrix::t(X)
 
   if(is.na(match("matrix.csr",class(X)))){X.t <- SparseM::as.matrix.csr(X.t)}
@@ -95,7 +99,9 @@ DiProPerm <- function(X,y,B=1000,classifier="dwd",univ.stat="md",balance=TRUE,al
     permdist_rsamp <- unlist(lapply(perm_list,sumfun_diffmean))
   }
 
-  pval <- mean(permdist_rsamp>=obs.teststat)
+  pval <- paste0(round(mean(permdist_rsamp>=obs.teststat),3))
+
+  if(pval=="0") {pval="<0.001"}
 
   pct <- stats::quantile(permdist_rsamp, probs = (1-alpha))
 

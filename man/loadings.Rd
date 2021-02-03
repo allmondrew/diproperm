@@ -12,10 +12,10 @@ loadings(dpp, loadnum = length(dpp$w))
 \item{loadnum}{An integer indicating the number of variables to display.  For example, if loadnum=5 then the indexes for the five variables who contributed most toward the separation of the two classes are displayed. The default is to print out all the loadings.}
 }
 \value{
-Returns the indexes and loadings for variables which contributed the most toward the separation of the the binary classifier.
+Returns the indexes and loadings for variables which contributed the most toward the separation of the the binary classifier. The loading values range from -1 to 1.
 }
 \description{
-Returns the variable indexes who had the highest loadings in the binary classification.  Higher loading values indicate a variable's contribution toward the separation between the two classes.
+Returns the variable indexes who had the highest loadings in the binary classification.  Higher loading values indicate a variable's contribution toward the separation between the two classes. The loading values range from -1 to 1.
 }
 \examples{
 \donttest{data(mushrooms)
