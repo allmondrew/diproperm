@@ -69,7 +69,7 @@ DiProPerm <- function(X,y,B=1000,classifier="dwd",univ.stat="md",balance=TRUE,al
 
     C = quiet(DWDLargeR::penaltyParameter(X.t,y,expon=1,rmzeroFea = 0))
     # solve the generalized DWD model
-    result.out = capture.output(DWDLargeR::genDWD(X.t,y,C=C,expon=1,rmzeroFea = 0))
+    result.out = utils::capture.output(DWDLargeR::genDWD(X.t,y,C=C,expon=1,rmzeroFea = 0))
     result = quiet(DWDLargeR::genDWD(X.t,y,C=C,expon=1,rmzeroFea = 0)) ## Iain uses C=0.1 in his example
     cat(result.out[1:8],sep = "\n") ## Exclude the primfeas, dualfeas, and relative gap information from output ##
     w.obs <- result$w / norm_vec(result$w)
