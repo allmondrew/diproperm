@@ -10,7 +10,7 @@
 #' @param y A vector of \code{n} binary class labels -1 and 1.
 #' @param B The number of permutations for the DiProPerm test. The default is 1000.
 #' @param classifier A string designating the binary linear classifier. classifier="dwd", distance weighted discrimination, is the default. classifier="dwd" implements a generalized DWD model from the \code{\link[DWDLargeR]{genDWD}} function in the \code{DWDLargeR} package.
-#' The penalty parameter, \code{C}, in the \code{genDWD} function is calculated using the \code{\link[DWDLargeR]{penaltyParameter}} function in \code{DWDLargeR}. More details on the algorithm used to calculate the DWD solution can be found \href{https://www.tandfonline.com/doi/full/10.1080/10618600.2017.1366915}{here}.
+#' The penalty parameter, \code{C}, in the \code{genDWD} function is calculated using the \code{\link[DWDLargeR]{penaltyParameter}} function in \code{DWDLargeR}. \code{DWDLargeR} has several parameters which have reasonable defaults, whose use is recommended. More details on the algorithm used to calculate the DWD solution can be found \href{https://www.tandfonline.com/doi/full/10.1080/10618600.2017.1366915}{here}.
 #' One other option for the binary classifier is the "md", mean difference direction.
 #' @param univ.stat A string indicating the univariate statistic used for the projection step. univ.stat="md", mean difference, is the default.
 #' @param balance A logical indicator for whether a balanced permutation design should be implemented.  The default is TRUE.
@@ -71,7 +71,7 @@ DiProPerm <- function(X,y,B=1000,classifier="dwd",univ.stat="md",balance=TRUE,al
     # solve the generalized DWD model
     result.out = capture.output(DWDLargeR::genDWD(X.t,y,C=C,expon=1,rmzeroFea = 0))
     result = quiet(DWDLargeR::genDWD(X.t,y,C=C,expon=1,rmzeroFea = 0)) ## Iain uses C=0.1 in his example
-    cat(result.out[1:8],sep = "\n")
+    cat(result.out[1:8],sep = "\n") ## Exclude the primfeas, dualfeas, and relative gap information from output ##
     w.obs <- result$w / norm_vec(result$w)
   }
 

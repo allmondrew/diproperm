@@ -5,7 +5,10 @@ Version: 0.2.0
 Authors@R: c(person("Andrew G.", "Allmon", role = c("aut", "cre"), email = "allmondrew@yahoo.com"),
             person("J.S.", "Marron", role = "aut"),
             person("Michael G.","Hudgens", role = "aut"))
-Description: Conducts a direction-projection-permutation test and displays several key plots to facilitate the visual assessment of the test. See Wei et. al (2016) <doi:10.1080/10618600.2015.1027773> and Lam et. al (2018) <doi:10.1080/10618600.2017.1366915> for more details.
+Description: Conducts a direction-projection-permutation test and displays several key plots to 
+             facilitate the visual assessment of the test. See Wei et. al (2016) 
+             <doi:10.1080/10618600.2015.1027773> and Lam et. al (2018) <doi:10.1080/10618600.2017.1366915> 
+             for more details.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
