@@ -50,7 +50,7 @@ A list containing:
 \description{
 This package conducts a Direction-Projection-Permutation (DiProPerm) test.
 For more details see Wei et al, 2016 \href{https://www.tandfonline.com/doi/full/10.1080/10618600.2015.1027773}{here}.
-DiProPerm assesses whether a binary linear classifier can detect a difference between two high-dimensional distributions.
+DiProPerm is a two-sample hypothesis test for high-dimensional data and tests the difference of two high-dimensional distributions induced by a binary linear classifier.
 }
 \examples{
 \donttest{data(mushrooms)
