@@ -5,5 +5,4 @@ This package is available on CRAN (https://cran.r-project.org/web/packages/dipro
 
 Note: Some users have experienced an issue where the R package 'gert' needs to be installed before installing the github version of diproperm. 
 
-Note: Some users have also reported minimal computational gain after using 15 cores.
-
+Note: Some users have also reported minimal computational gain after using 10 cores.
