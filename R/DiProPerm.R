@@ -57,6 +57,8 @@ DiProPerm <- function(X,y,B=1000,classifier="dwd",univ.stat="md",balance=TRUE,al
 
   ## Perform error checks
   if(B<1000) {message("Setting the number of permutations, B, below 1000 is not recommended.")}
+  if(dim(table(y)) != 2){stop("Error: y vector must be 2 dimensions with '-1' and '1' for class labels.")}
+  if(sum(is.element(c(1,-1),y)) != 2){stop("y vector must have class labels of '-1' and '1'.")}
   if(is.na(match("matrix",class(X))) & is.na(match("matrix.csr",class(X))) ) {stop("Error: Please make sure your input data, X, is a data matrix.")}
 
   X.t <- Matrix::t(X)

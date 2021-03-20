@@ -32,13 +32,13 @@ RepParallel <- function(B, n.cores=2 , expr, simplify = "array",...) {
 }
 
 ## Calculates the norm of a vector as done in python DPP package
-norm_vec <- function(x) sqrt(sum(x^2))
+norm_vec <- function(a) sqrt(sum(a^2))
 
 ## Suppresses output from DiProPerm iterations ##
-quiet <- function(x) {
+quiet <- function(b) {
   sink(tempfile())
   on.exit(sink())
-  invisible(force(x))
+  invisible(force(b))
 }
 
 ## Conduct a balanced permutation ##
