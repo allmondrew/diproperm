@@ -24,6 +24,7 @@ Imports:
     parallel,
     dplyr,
     DWDLargeR,
+    e1071,
     Matrix,
     SparseM,
     sampling

@@ -7,6 +7,7 @@
 usethis::use_package("Matrix")
 usethis::use_package("SparseM")
 usethis::use_package("DWDLargeR")
+usethis::use_package("e1071")
 usethis::use_package("parallel")
 #usethis::use_package("devtools")
 #usethis::use_package("pracma")
@@ -97,6 +98,24 @@ dwd_scores <- function(X.t,n,balance) {
 
   ## Calculate Permuted Scores ##
   w <- result$w / norm_vec(result$w) ## Loadings of Separating Hyperplane
+  xw <- X %*% w  ## Projected scores onto hyperplane
+
+  return(list(data.frame(xw,perm_y)))
+}
+
+## Calculates the SVM scores ##
+svm_scores <- function(Xtemp,n,balance) {
+  set.seed(NULL)
+  perm_y <- dwd_rsamp(balance,n)
+  perm_y_temp <- as.factor(perm_y)
+
+  # solve the SVM model
+  result = e1071::svm(Xtemp,perm_y_temp, kernel="linear")
+
+  w.svm <- Matrix::as.matrix(drop(t(result$coefs)%*%Xtemp[result$index,]))
+
+  ## Calculate Permuted Scores ##
+  w <- w.svm[1,] / norm_vec(w.svm[1,]) ## Loadings of Separating Hyperplane
   xw <- X %*% w  ## Projected scores onto hyperplane
 
   return(list(data.frame(xw,perm_y)))

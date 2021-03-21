@@ -78,6 +78,15 @@ DiProPerm <- function(X,y,B=1000,classifier="dwd",univ.stat="md",balance=TRUE,al
   }
 
   ######### Mean Difference Direction ########
+  if (classifier=="svm") {
+    ## y must be in factor format for svm to do classification
+    y.temp <- as.factor(y)
+    result <- e1071::svm(X,y.temp, kernel = "linear")
+    w.svm <- Matrix::as.matrix(drop(t(result$coefs)%*%X[result$index,]))
+    w.obs <- w.svm[1,] / norm_vec(w.svm[1,])
+  }
+
+  ######### Mean Difference Direction ########
   if (classifier=="md") {
     X.temp <- SparseM::as.matrix(X)
     w.md <- apply(X.temp[y==-1,],2,mean)-apply(X.temp[y==1,],2,mean)
@@ -95,6 +104,11 @@ DiProPerm <- function(X,y,B=1000,classifier="dwd",univ.stat="md",balance=TRUE,al
   ## This set is the best and fastest: takes about 30 seconds when C is from the penalty param function from Marron et al. ##
   if (classifier=="dwd") {
     perm_list <- RepParallel(B,n.cores=cores,dwd_scores(X.t,n=nrow(X),balance))
+    permdist_rsamp <- unlist(lapply(perm_list,sumfun_diffmean))
+  }
+
+  if (classifier=="svm") {
+    perm_list <- RepParallel(B,n.cores=cores,svm_scores(X,n=nrow(X),balance))
     permdist_rsamp <- unlist(lapply(perm_list,sumfun_diffmean))
   }
 
