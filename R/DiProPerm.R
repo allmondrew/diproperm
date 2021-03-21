@@ -45,6 +45,11 @@
 #' X <- Matrix::t(X.temp)
 #' y <- mushrooms$y[1:50]
 #' dpp <- DiProPerm(X=X,y=y,B=100,classifier="md")}
+#' \dontshow{data(mushrooms)
+#' X <- Matrix::t(mushrooms$X)
+#' X <- X[1:50,]
+#' y <- mushrooms$y[1:50]
+#' dpp <- DiProPerm(X=X,y=y,B=100,classifier="svm")}
 #'
 #' @references
 #' {Lam, X. Y., Marron, J. S., Sun, D., & Toh, K.-C. (2018). Fast Algorithms for
