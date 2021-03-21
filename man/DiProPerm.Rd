@@ -24,7 +24,7 @@ DiProPerm(
 
 \item{classifier}{A string designating the binary linear classifier. classifier="dwd", distance weighted discrimination, is the default. classifier="dwd" implements a generalized DWD model from the \code{\link[DWDLargeR]{genDWD}} function in the \code{DWDLargeR} package.
 The penalty parameter, \code{C}, in the \code{genDWD} function is calculated using the \code{\link[DWDLargeR]{penaltyParameter}} function in \code{DWDLargeR}. \code{DWDLargeR} has several parameters which have reasonable defaults, whose use is recommended. More details on the algorithm used to calculate the DWD solution can be found \href{https://www.tandfonline.com/doi/full/10.1080/10618600.2017.1366915}{here}.
-One other option for the binary classifier is the "md", mean difference direction.}
+Other options for the binary classifier include the "md", mean difference direction, and "svm", support vector machine.The "svm" option uses the default implementation from \code{\link[e1071]{svm}}.}
 
 \item{univ.stat}{A string indicating the univariate statistic used for the projection step. univ.stat="md", mean difference, is the default.}
 
