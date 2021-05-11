@@ -60,7 +60,14 @@
 #' {Wei, S., Lee, C., Wichers, L., & Marron, J. S. (2016). Direction-Projection-Permutation for High-Dimensional Hypothesis Tests. Journal of Computational and Graphical Statistics, 25(2), 549–569. \url{https://doi.org/10.1080/10618600.2015.1027773}}
 DiProPerm <- function(X,y,B=1000,classifier="dwd",univ.stat="md",balance=TRUE,alpha=0.05,cores=2) {
 
+  #Xbefore <<- FALSE
+  #ybefore <<- FALSE
+
+  #if(eval(is.element('X',ls()),envir = .GlobalEnv)){Xbefore <<- TRUE}
+  #if(eval(is.element('y',ls()),envir = .GlobalEnv)){ybefore <<- TRUE}
+
   X <<- X
+  y <<- y
 
   ## Perform error checks
   if(B<1000) {message("Setting the number of permutations, B, below 1000 is not recommended.")}
@@ -133,8 +140,12 @@ DiProPerm <- function(X,y,B=1000,classifier="dwd",univ.stat="md",balance=TRUE,al
   Z <- (obs.teststat-mean(permdist_rsamp))/stats::sd(permdist_rsamp)
 
   odat <- X
-  rm(X,envir = .GlobalEnv)
-  return(list(X=odat,y=y,obs_teststat=obs.teststat,xw=xw.obs,w=w.obs,Z=Z,cutoff_value=pct[[1]],pvalue=pval,perm_dist=perm_list,perm_stats=permdist_rsamp))
+  ydat <- y
+
+  #if(Xbefore==FALSE){rm(X,envir = .GlobalEnv)}
+  #if(ybefore==FALSE){rm(y,envir = .GlobalEnv)}
+
+  return(list(X=odat,y=ydat,obs_teststat=obs.teststat,xw=xw.obs,w=w.obs,Z=Z,cutoff_value=pct[[1]],pvalue=pval,perm_dist=perm_list,perm_stats=permdist_rsamp))
 }
 
 #source("R/dpp_functions.R")
