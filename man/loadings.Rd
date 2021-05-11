@@ -15,7 +15,12 @@ loadings(dpp, loadnum = length(dpp$w))
 Returns the indexes and loadings for variables which contributed the most toward the separation of the the binary classifier.
 }
 \description{
-Returns the variable indexes who had the highest loadings in the binary classification.  Higher loading values indicate a variable's contribution toward the separation between the two classes. The loadings vector is a unit vector, thus the sum of its squares must be equal to one and range from -1 to 1.  Also, the loadings direction vector points from the negative to positive class. Thus, positive entries correspond to variables that are larger for the positive class.
+Returns the variable indexes who had the highest loadings in the
+binary classification. Higher loading values indicate a variable's contribution
+toward the separation between the two classes. The loadings vector is a unit
+vector, thus the sum of its squares must be equal to one and range from -1 to 1.
+Also, the loadings direction vector points from the negative to positive class.
+Thus, positive entries correspond to variables that are larger for the positive class.
 }
 \examples{
 \donttest{data(mushrooms)
