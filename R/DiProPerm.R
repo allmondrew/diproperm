@@ -60,6 +60,8 @@
 #' {Wei, S., Lee, C., Wichers, L., & Marron, J. S. (2016). Direction-Projection-Permutation for High-Dimensional Hypothesis Tests. Journal of Computational and Graphical Statistics, 25(2), 549–569. \url{https://doi.org/10.1080/10618600.2015.1027773}}
 DiProPerm <- function(X,y,B=1000,classifier="dwd",univ.stat="md",balance=TRUE,alpha=0.05,cores=2) {
 
+  X <<- X
+
   ## Perform error checks
   if(B<1000) {message("Setting the number of permutations, B, below 1000 is not recommended.")}
   if(dim(table(y)) != 2){stop("Error: y vector must be 2 dimensions with '-1' and '1' for class labels.")}
@@ -130,7 +132,9 @@ DiProPerm <- function(X,y,B=1000,classifier="dwd",univ.stat="md",balance=TRUE,al
 
   Z <- (obs.teststat-mean(permdist_rsamp))/stats::sd(permdist_rsamp)
 
-  return(list(X=X,y=y,obs_teststat=obs.teststat,xw=xw.obs,w=w.obs,Z=Z,cutoff_value=pct[[1]],pvalue=pval,perm_dist=perm_list,perm_stats=permdist_rsamp))
+  odat <- X
+  rm(X,envir = .GlobalEnv)
+  return(list(X=odat,y=y,obs_teststat=obs.teststat,xw=xw.obs,w=w.obs,Z=Z,cutoff_value=pct[[1]],pvalue=pval,perm_dist=perm_list,perm_stats=permdist_rsamp))
 }
 
 #source("R/dpp_functions.R")
