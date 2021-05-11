@@ -3,14 +3,16 @@
 #' @name DiProPerm
 #'
 #' @description This package conducts a Direction-Projection-Permutation (DiProPerm) test.
-#' For more details see Wei et al, 2016 \href{https://www.tandfonline.com/doi/full/10.1080/10618600.2015.1027773}{here}.
-#' DiProPerm is a two-sample hypothesis test for high-dimensional data and tests the difference of two high-dimensional distributions induced by a binary linear classifier.
+#' For more details see Wei et al, 2016.
+#' DiProPerm is a two-sample hypothesis test for comparing two high-dimensional
+#' distributions. The DiProPerm test is exact, i.e., the type I error is guaranteed
+#' to be controlled at the nominal level for any sample size.
 #'
 #' @param X An \code{nxp} data matrix.
 #' @param y A vector of \code{n} binary class labels -1 and 1.
 #' @param B The number of permutations for the DiProPerm test. The default is 1000.
 #' @param classifier A string designating the binary linear classifier. classifier="dwd", distance weighted discrimination, is the default. classifier="dwd" implements a generalized DWD model from the \code{\link[DWDLargeR]{genDWD}} function in the \code{DWDLargeR} package.
-#' The penalty parameter, \code{C}, in the \code{genDWD} function is calculated using the \code{\link[DWDLargeR]{penaltyParameter}} function in \code{DWDLargeR}. \code{DWDLargeR} has several parameters which have reasonable defaults, whose use is recommended. More details on the algorithm used to calculate the DWD solution can be found \href{https://www.tandfonline.com/doi/full/10.1080/10618600.2017.1366915}{here}.
+#' The penalty parameter, \code{C}, in the \code{genDWD} function is calculated using the \code{\link[DWDLargeR]{penaltyParameter}} function in \code{DWDLargeR}. The R package \code{DWDLargeR} has several parameters which are set to recommended default values. More details on the algorithm used to calculate the DWD solution can be found in Lam et al. (2018).
 #' Other options for the binary classifier include the "md", mean difference direction, and "svm", support vector machine. The "svm" option uses the default implementation from \code{\link[e1071]{svm}}.
 #' @param univ.stat A string indicating the univariate statistic used for the projection step. univ.stat="md", mean difference, is the default.
 #' @param balance A logical indicator for whether a balanced permutation design should be implemented.  The default is TRUE.
