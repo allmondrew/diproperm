@@ -51,7 +51,7 @@ A list containing:
 This package conducts a Direction-Projection-Permutation (DiProPerm) test.
 DiProPerm is a two-sample hypothesis test for comparing two high-dimensional
 distributions. The DiProPerm test is exact, i.e., the type I error is guaranteed
-to be controlled at the nominal level for any sample size. For more details see Wei et al, 2016.
+to be controlled at the nominal level for any sample size. For more details see Wei et al. (2016).
 }
 \examples{
 \donttest{data(mushrooms)
