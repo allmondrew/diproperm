@@ -5,7 +5,7 @@
 #' @description This package conducts a Direction-Projection-Permutation (DiProPerm) test.
 #' DiProPerm is a two-sample hypothesis test for comparing two high-dimensional
 #' distributions. The DiProPerm test is exact, i.e., the type I error is guaranteed
-#' to be controlled at the nominal level for any sample size. For more details see Wei et al, 2016.
+#' to be controlled at the nominal level for any sample size. For more details see Wei et al. (2016).
 #'
 #' @param X An \code{nxp} data matrix.
 #' @param y A vector of \code{n} binary class labels -1 and 1.
