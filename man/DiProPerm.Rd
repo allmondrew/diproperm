@@ -22,11 +22,11 @@ DiProPerm(
 
 \item{B}{The number of permutations for the DiProPerm test. The default is 1000.}
 
-\item{classifier}{A string designating the binary linear classifier. classifier="dwd", distance weighted discrimination, is the default. classifier="dwd" implements a generalized DWD model from the \code{\link[DWDLargeR]{genDWD}} function in the \code{DWDLargeR} package.
-The penalty parameter, \code{C}, in the \code{genDWD} function is calculated using the \code{\link[DWDLargeR]{penaltyParameter}} function in \code{DWDLargeR}. The R package \code{DWDLargeR} has several parameters which are set to recommended default values. More details on the algorithm used to calculate the DWD solution can be found in Lam et al. (2018).
+\item{classifier}{A string designating the binary linear classifier. classifier="dwd", distance weighted discrimination (DWD), is the default. classifier="dwd" implements a generalized DWD model from the \code{\link[DWDLargeR]{genDWD}} function in the \code{DWDLargeR} package.
+The penalty parameter, \code{C}, in the \code{genDWD} function is calculated using the \code{\link[DWDLargeR]{penaltyParameter}} function in \code{DWDLargeR}. The \code{genDWD} and \code{penaltyParameter} functions have several arguments which are set to recommended default values. More details on the algorithm used to calculate the DWD solution can be found in Lam et al. (2018).
 Other options for the binary classifier include the "md", mean difference direction, and "svm", support vector machine. The "svm" option uses the default implementation from \code{\link[e1071]{svm}}.}
 
-\item{univ.stat}{A string indicating the univariate statistic used for the projection step. univ.stat="md", mean difference, is the default.}
+\item{univ.stat}{A string indicating the univariate statistic used for the projection step. univ.stat="md", the mean difference, is the default.}
 
 \item{balance}{A logical indicator for whether a balanced permutation design should be implemented.  The default is TRUE.}
 
@@ -49,10 +49,9 @@ A list containing:
 }
 \description{
 This package conducts a Direction-Projection-Permutation (DiProPerm) test.
-For more details see Wei et al, 2016.
 DiProPerm is a two-sample hypothesis test for comparing two high-dimensional
 distributions. The DiProPerm test is exact, i.e., the type I error is guaranteed
-to be controlled at the nominal level for any sample size.
+to be controlled at the nominal level for any sample size. For more details see Wei et al, 2016.
 }
 \examples{
 \donttest{data(mushrooms)
