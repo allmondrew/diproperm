@@ -71,12 +71,7 @@ dpp <- DiProPerm(X=X,y=y,B=100,classifier="svm")}
 
 }
 \references{
-{Lam, X. Y., Marron, J. S., Sun, D., & Toh, K.-C. (2018). Fast Algorithms for
- Large-Scale Generalized Distance Weighted Discrimination. Journal of
- Computational and Graphical Statistics, 27(2), 368–379.
- \url{https://doi.org/10.1080/10618600.2017.1366915}}
 
-{Wei, S., Lee, C., Wichers, L., & Marron, J. S. (2016). Direction-Projection-Permutation for High-Dimensional Hypothesis Tests. Journal of Computational and Graphical Statistics, 25(2), 549–569. \url{https://doi.org/10.1080/10618600.2015.1027773}}
 }
 \author{
 Andrew G. Allmon, J.S. Marron, Michael G. Hudgens

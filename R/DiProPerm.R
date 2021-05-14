@@ -56,9 +56,9 @@
 #' {Lam, X. Y., Marron, J. S., Sun, D., & Toh, K.-C. (2018). Fast Algorithms for
 #'  Large-Scale Generalized Distance Weighted Discrimination. Journal of
 #'  Computational and Graphical Statistics, 27(2), 368–379.
-#'  \DOI{10.1080/10618600.2017.1366915}
+#'  \DOI{10.1080/10618600.2017.1366915}}
 #'
-#' {Wei, S., Lee, C., Wichers, L., & Marron, J. S. (2016). Direction-Projection-Permutation for High-Dimensional Hypothesis Tests. Journal of Computational and Graphical Statistics, 25(2), 549–569. \DOI{10.1080/10618600.2015.1027773}
+#' {Wei, S., Lee, C., Wichers, L., & Marron, J. S. (2016). Direction-Projection-Permutation for High-Dimensional Hypothesis Tests. Journal of Computational and Graphical Statistics, 25(2), 549–569. \DOI{10.1080/10618600.2015.1027773}}
 DiProPerm <- function(X,y,B=1000,classifier="dwd",univ.stat="md",balance=TRUE,alpha=0.05,cores=2) {
 
   #Xbefore <<- FALSE
